@@ -24,11 +24,11 @@ public class EmployeeView {
 
     private Integer adminFlag;
 
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 
-    private LocalDateTime updated;
+    private LocalDateTime updatedAt;
 
-    private Integer deletFlag;
+    private Integer deleteFlag;
 
 
 }
