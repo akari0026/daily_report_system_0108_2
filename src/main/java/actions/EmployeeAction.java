@@ -56,22 +56,22 @@ public class EmployeeAction extends ActionBase{
 
 
         }
-        
+
         public void entryNew()throws ServletException,IOException{
-        
+
         putRequestScope(AttributeConst.TOKEN,getTokenId());
         putRequestScope(AttributeConst.EMPLOYEE,new EmployeeView());
 
-        forward(forwardConst.FW_EMP_NEW);
+        forward(ForwardConst.FW_EMP_NEW);
     }
-        
-        
+
+
         public void create() throws ServletException, IOException {
 
-         
+
             if (checkToken()) {
 
-                
+
                 EmployeeView ev = new EmployeeView(
                         null,
                         getRequestParam(AttributeConst.EMP_CODE),
@@ -87,18 +87,33 @@ public class EmployeeAction extends ActionBase{
                 List<String> errors = service.create(ev, pepper);
 
                 if (errors.size() > 0) {
-           
+
                     putRequestScope(AttributeConst.TOKEN, getTokenId());
-                    putRequestScope(AttributeConst.EMPLOYEE, ev); 
-                    putRequestScope(AttributeConst.ERR, errors); 
+                    putRequestScope(AttributeConst.EMPLOYEE, ev);
+                    putRequestScope(AttributeConst.ERR, errors);
 
                     forward(ForwardConst.FW_EMP_NEW);
 
                 } else {
-                 
+
                     putSessionScope(AttributeConst.FLUSH, MessageConst.I_REGISTERED.getMessage());
                     redirect(ForwardConst.ACT_EMP, ForwardConst.CMD_INDEX);
                 }
-
             }
-｝
+            }
+
+        public void show() throws ServletException,IOException{
+
+            EmployeeView ev = service.findOne(toNumber(getRequestParam(AttributeConst.EMP_ID)));
+            if(ev == null || ev.getDeleteFlag() == AttributeConst.DEL_FLAG_TRUE.getIntegerValue()){
+
+                forward(ForwardConst.FW_ERR_UNKNOWN);
+                return;
+            }
+
+            putRequestScope(AttributeConst.EMPLOYEE,ev);
+
+            forward(ForwardConst.FW_EMP_SHOW);
+        }
+
+}
