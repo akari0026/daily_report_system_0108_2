@@ -13,6 +13,7 @@ public enum ForwardConst {
     CMD_INDEX("index"),
     CMD_SHOW("show"),
     CMD_SHOW_LOGIN("showLogin"),
+    CMD_LOGIN("login"),
     SMD_LOGOUT("logout"),
     CMD_NEW("entryNew"),
     CMD_CREATE("create"),
@@ -26,11 +27,11 @@ public enum ForwardConst {
     FW_EMP_INDEX("employees/index"),
     FW_EMP_SHOW("enployees/show"),
     FW_EMP_NEW("employees/new"),
-    FW_EMP_EDIT("reports/edit"),
+    FW_EMP_EDIT("employees/edit"),
     FW_REP_INDEX("repores/index"),
     FW_REP_SHOW("reports/show"),
     FW_REP_NEW("reports/new"),
-    FW_REPEDIT("reports/edit"),
+    FW_REPEDIT("reports/edit");
 
     private final String text;
 

@@ -19,14 +19,14 @@ public enum AttributeConst {
     EMP_COUNT("employees_count"),
     EMP_ID("id"),
     EMP_CODE("code"),
-    EMP_PASS("passwaord"),
+    EMP_PASS("password"),
     EMP_NAME("name"),
-    EMP_ADMIN_FLG("adomin_flug"),
+    EMP_ADMIN_FLG("admin_flag"),
 
     ROLE_ADMIN(1),
     ROLE_GENERAL(0),
 
-    DAL_FLAG_TRUE(1),
+    DEL_FLAG_TRUE(1),
     DEL_FLAG_FALSE(0),
 
     REPORT("report"),
@@ -35,7 +35,7 @@ public enum AttributeConst {
     REP_ID("id"),
     REP_DATA("report_data"),
     REP_TITLE("title"),
-    REP_CONTENT("content"),
+    REP_CONTENT("content");
 
 
     private final String text;
