@@ -19,6 +19,8 @@ public class EmployeeAction extends ActionBase{
         @Override
         public void process()throws ServletException,IOException{
 
+
+
             service= new EmployeeService();
 
             invoke();
@@ -52,4 +54,12 @@ public class EmployeeAction extends ActionBase{
 
 
         }
+        
+        public void entryNew()throws ServletException,IOException{
+        
+        putRequestScope(AttributeConst.TOKEN,getTokenId());
+        putRequestScope(AttributeConst.EMPLOYEE,new EmployeeView());
+
+        forward(forwardConst.FW_EMP_NEW);
+    }
 }
