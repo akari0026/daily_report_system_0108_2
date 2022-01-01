@@ -1,7 +1,7 @@
 package actions;
 
 import java.io.IOException;
-
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.servlet.RequestDispatcher;
@@ -44,8 +44,8 @@ public abstract class ActionBase {
             commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);
             commandMethod.invoke(this, new Object[0]);
 
-        }catch(NoSuchMethodException | SecuritytException | IllegalAccessException | IllegalArgumentException |
-                InvocationTargetException | NullPointerException e) {
+        }catch(NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
+                | InvocationTargetException | NullPointerException e) {
 
 
              e.printStackTrace();
@@ -88,7 +88,7 @@ public abstract class ActionBase {
         }
 
         protected String getTokenId() {
-            return request.getSession().getId();        }
+            return request.getSession().getId();
 
         }
 
