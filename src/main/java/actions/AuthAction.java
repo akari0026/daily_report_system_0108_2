@@ -59,8 +59,19 @@ public class AuthAction extends ActionBase {
             putRequestScope(AttributeConst.TOKEN,getTokenId());
             putRequestScope(AttributeConst.LOGIN_ERR,true);
             putRequestScope(AttributeConst.EMP_CODE,code);
-            
+
             forward(ForwardConst.FW_LOGIN);
         }
     }
+
+    public void logout() throws ServletException,IOException{
+
+        removeSessionScope(AttributeConst.LOGIN_EMP);
+        putSessionScope(AttributeConst.FLUSH,MessageConst.I_LOGOUT.getMessage());
+        redirect(ForwardConst.ACT_AUTH,ForwardConst.CMD_SHOW_LOGIN);
+
     }
+
+    }
+
+
