@@ -81,13 +81,13 @@ public class EmployeeService  extends ServiceBase{
     }
 
     public List<String>update(EmployeeView ev,String pepper){
-        EmployeeView saveEmp = findOne(ev.getId());
+        EmployeeView savedEmp = findOne(ev.getId());
 
         boolean validateCode = false;
         if(!savedEmp.getCode().equals(ev.getCode())){
 
             validateCode = true;
-            saveEmp.setCode(ev.getCode());
+            savedEmp.setCode(ev.getCode());
         }
 
         boolean validatePass = false;
@@ -99,7 +99,7 @@ public class EmployeeService  extends ServiceBase{
         }
 
         savedEmp.setName(ev.getName());
-        savedEmp.setAdinFlag(ev.getAdminFlag());
+        savedEmp.setAdminFlag(ev.getAdminFlag());
 
         LocalDateTime today= LocalDateTime.now();
         savedEmp.setUpdatedAt(today);
@@ -121,11 +121,11 @@ public class EmployeeService  extends ServiceBase{
         update(savedEmp);
     }
 
-    public Boolean validatealogin(String code,String plainpass,String pepper) {
+    public Boolean validatealogin(String code,String plainPass,String pepper) {
 
         boolean isValidEmployee = false;
-        if(code !=null && !code.equals("") && plainPass !=null $$ !plainPass.equals("")) {
-            EmployeeView ev= findOne(code,plainpass,pepper);
+        if(code !=null && !code.equals("") && plainPass !=null && !plainPass.equals("")) {
+            EmployeeView ev= findOne(code,plainPass,pepper);
             if(ev !=null && ev.getId() !=null) {
                 isValidEmployee= true;
             }
