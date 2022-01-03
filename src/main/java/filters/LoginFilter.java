@@ -27,7 +27,7 @@ public class LoginFilter {
 
     public void doFilter(ServletRequest request,ServletResponse response,FilterChain chain)
         throws IOException,ServletException{
-        String contextPath = ((HttpServletRequest)request).getContexrpath();
+        String contextPath = ((HttpServletRequest)request).getContexrPath();
         String servletPath = ((HttpServletRequest)request).getServletPath();
 
         if(servletPath.matches("/css.*")) {

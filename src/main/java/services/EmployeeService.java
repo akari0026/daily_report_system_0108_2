@@ -121,7 +121,7 @@ public class EmployeeService  extends ServiceBase{
         update(savedEmp);
     }
 
-    public Boolean validatealogin(String code,String plainPass,String pepper) {
+    public Boolean validateLogin(String code,String plainPass,String pepper) {
 
         boolean isValidEmployee = false;
         if(code !=null && !code.equals("") && plainPass !=null && !plainPass.equals("")) {

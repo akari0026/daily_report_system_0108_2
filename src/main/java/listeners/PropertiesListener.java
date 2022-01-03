@@ -19,12 +19,12 @@ public class PropertiesListener implements ServletContextListener {
 
     }
 
-    public void contextDestroyed(ServletContextEvent sce)  {
+    public void contextDestroyed(ServletContextEvent arg0)  {
 
     }
 
 
-    public void contextInitialized(ServletContextEvent sce)  {
+    public void contextInitialized(ServletContextEvent arg0)  {
         ServletContext context = arg0.getServletContext();
 
         try {

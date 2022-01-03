@@ -27,7 +27,7 @@ public interface JpaConst {
 
     String REP_COL_ID="id";
     String REP_COL_EMP= "employee_id";
-    String REP_COL_REP_DATA="report_data";
+    String REP_COL_REP_DATE="report_data";
     String REP_COL_TITLE="title";
     String REP_COL_CONTENT= "content";
     String REP_COL_CREATED_AT="created_at";

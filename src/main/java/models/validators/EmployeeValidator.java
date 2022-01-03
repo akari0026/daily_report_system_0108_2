@@ -41,9 +41,9 @@ public class EmployeeValidator {
 
         if(codeDuplicateCheckFlag) {
 
-            long employeeConst= isDuplicateEmployee(service,code);
+            long employeeCount= isDuplicateEmployee(service,code);
 
-        if(employeeConst > 0) {
+        if(employeeCount > 0) {
                 return MessageConst.E_EMP_CODE_EXIST.getMessage();
 
 
@@ -55,7 +55,7 @@ public class EmployeeValidator {
 
 
 
-    private static long usDiplicateEmployee(EmployeeService service,String code) {
+    private static long isDuplicateEmployee(EmployeeService service,String code) {
 
         long employeesCount= service.countByCode(code);
 
