@@ -60,24 +60,20 @@ public class ReportService extends ServiceBase {
             createInternal(rv);
         }
 
-        //バリデーションで発生したエラーを返却（エラーがなければ0件の空リスト）
         return errors;
     }
  List<String> update(ReportView rv) {
 
-        //バリデーションを行う
         List<String> errors = ReportValidator.validate(rv);
 
         if (errors.size() == 0) {
 
-            //更新日時を現在時刻に設定
             LocalDateTime ldt = LocalDateTime.now();
             rv.setUpdatedAt(ldt);
 
             updateInternal(rv);
         }
 
-        //バリデーションで発生したエラーを返却（エラーがなければ0件の空リスト）
         return errors;
     }
 

@@ -31,7 +31,7 @@ public enum ForwardConst {
     FW_REP_INDEX("repores/index"),
     FW_REP_SHOW("reports/show"),
     FW_REP_NEW("reports/new"),
-    FW_REPEDIT("reports/edit");
+    FW_REP_EDIT("reports/edit");
 
     private final String text;
 
