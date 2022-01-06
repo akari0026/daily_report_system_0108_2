@@ -45,7 +45,7 @@ public class AuthAction extends ActionBase {
         String plainPass= getRequestParam(AttributeConst.EMP_PASS);
         String pepper= getContextScope(PropertyConst.PEPPER);
 
-        Boolean isValidEmployee= service.validateLogin(code,plainPass,pepper);
+        Boolean isValidEmployee = service.validateLogin(code,plainPass,pepper);
 
         if(isValidEmployee) {
 
@@ -58,7 +58,7 @@ public class AuthAction extends ActionBase {
         }else {
             putRequestScope(AttributeConst.TOKEN,getTokenId());
             putRequestScope(AttributeConst.LOGIN_ERR,true);
-            putRequestScope(AttributeConst.EMP_CODE,code);
+            putRequestScope(AttributeConst.EMP_CODE, code);
 
             forward(ForwardConst.FW_LOGIN);
         }
