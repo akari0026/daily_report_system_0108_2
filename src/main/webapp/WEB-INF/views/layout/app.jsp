@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ age import="constants.ForwardConst" %>
-<%@ page import="constants.AttributeConst" %>
+<%@ page import = "constants.ForwardConst" %>
+<%@ page import = "constants.AttributeConst" %>
 
-<c:set var="actTop" valu="${ForwardConst.ACT_TOP.getValue()}" />
-<c;set var=!actEmp" value="${ForwardConst.ACT_EMP.getVale()}" />
+<c:set var="actTop" value="${ForwardConst.ACT_TOP.getValue()}" />
+<c:set var="actEmp" value="${ForwardConst.ACT_EMP.getValue()}" />
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="actAuth" value="${ForwardConst.ACT_AUTH.getValue()}" />
 <c:set var="cmmId" value="${ForwardConst.CMD_INDEX.getValue()}" />
-<c:set var="commOut" value="${ForwardConst.CMD_LOGOUT.getVakue()}" />
+<c:set var="commOut" value="${ForwardConst.CMD_LOGOUT.getValue()}" />
 
 
 <!DOCTYPE html>

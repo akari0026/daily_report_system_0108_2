@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -46,18 +47,23 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = JpaConst.EMP_COL_CODE,nullable= false,unique= true)
+    private String code;
+
     @Column(name= JpaConst.EMP_COL_NAME,nullable= false)
     private String name;
 
-
     @Column(name= JpaConst.EMP_COL_PASS,length= 64,nullable= false)
-    private String passwaprd;
+    private String password;
+
+    @Column(name= JpaConst.EMP_COL_ADMIN_FLAG, nullable= false)
+    private Integer adminFlag;
 
     @Column(name= JpaConst.EMP_COL_CREATED_AT,nullable= false)
     private LocalDateTime createdAt;
 
     @Column(name = JpaConst.EMP_COL_UPDATED_AT,nullable= false)
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     @Column(name = JpaConst.EMP_COL_DELETE_FLAG,nullable= false)
     private Integer deleteFlag;

@@ -3,6 +3,7 @@ package actions;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -112,18 +113,25 @@ public abstract class ActionBase {
             return number;
         }
 
+        protected LocalDate toLocalDate(String strDate) {
+            if(strDate == null || strDate.equals("")) {
+                return LocalDate.now();
+            }
+            return LocalDate.parse(strDate);
+        }
+
         protected String getRequestParam(AttributeConst key) {
             return request.getParameter(key.getValue());
         }
 
-        protected<V>void putRequestScope(AttributeConst key,V value){
+        protected<V> void putRequestScope(AttributeConst key,V value){
 
             request.setAttribute(key.getValue(),value);
             }
 
         @SuppressWarnings("unchecked")
-        protected<R>R getSessionScope(AttributeConst key){
-            return(R)request.getSession().getAttribute(key.getValue());
+        protected<R> R getSessionScope(AttributeConst key){
+            return (R) request.getSession().getAttribute(key.getValue());
 
         }
 
@@ -137,7 +145,8 @@ public abstract class ActionBase {
             request.getSession().removeAttribute(key.getValue());
         }
 
-        @SuppressWarnings("unchecked")protected<R>R getContextScope(PropertyConst key){
+        @SuppressWarnings("unchecked")
+        protected <R> R getContextScope(PropertyConst key){
             return(R) context.getAttribute(key.getValue());
         }
         }

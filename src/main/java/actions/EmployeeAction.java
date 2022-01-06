@@ -39,18 +39,18 @@ public class EmployeeAction extends ActionBase{
             int page= getPage();
             List<EmployeeView>employees= service.getPerPage(page);
 
-            long employeeCount = service.countALL();
+            long employeeCount = service.countAll();
 
 
 
             putRequestScope(AttributeConst.EMPLOYEES,employees);
-            putRequestScope(AttributeConst.PAGE,page);
             putRequestScope(AttributeConst.EMP_COUNT,employeeCount);
+            putRequestScope(AttributeConst.PAGE,page);
             putRequestScope(AttributeConst.MAX_ROW,JpaConst.ROW_PER_PAGE);
 
 
             String flush= getSessionScope(AttributeConst.FLUSH);
-            if(flush !=null) {
+            if(flush != null) {
                 putRequestScope(AttributeConst.FLUSH,flush);
                 removeSessionScope(AttributeConst.FLUSH);
             }

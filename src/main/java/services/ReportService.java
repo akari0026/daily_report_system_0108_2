@@ -62,7 +62,7 @@ public class ReportService extends ServiceBase {
 
         return errors;
     }
- List<String> update(ReportView rv) {
+  public List<String> update(ReportView rv) {
 
         List<String> errors = ReportValidator.validate(rv);
 
