@@ -36,6 +36,7 @@ public void index() throws ServletException,IOException{
 
     long myReportsCount = service.countAllMine(loginEmployee);
     putRequestScope(AttributeConst.REPORTS,reports);
+    putRequestScope(AttributeConst.REP_COUNT,myReportsCount);
     putRequestScope(AttributeConst.PAGE,page);
     putRequestScope(AttributeConst.MAX_ROW,JpaConst.ROW_PER_PAGE);
 
