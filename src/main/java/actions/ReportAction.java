@@ -25,10 +25,13 @@ public class ReportAction extends ActionBase{
         service = new ReportService();
 
         invoke();
+
         service.close();
     }
 
     public void index() throws ServletException, IOException {
+
+
 
         int page = getPage();
         List<ReportView> reports = service.getAllPerPage(page);
@@ -39,6 +42,7 @@ public class ReportAction extends ActionBase{
         putRequestScope(AttributeConst.REP_COUNT, reportsCount);
         putRequestScope(AttributeConst.PAGE, page);
         putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE);
+
 
         String flush = getSessionScope(AttributeConst.FLUSH);
         if (flush != null) {

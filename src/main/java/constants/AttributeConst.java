@@ -12,7 +12,7 @@ public enum AttributeConst {
 
     LOGIN_EMP("login_employee"),
 
-    LOGIN_ERR("login_Error"),
+    LOGIN_ERR("loginError"),
 
     EMPLOYEE("employee"),
     EMPLOYEES("employees"),

@@ -45,13 +45,17 @@ public class AuthAction extends ActionBase {
         String plainPass= getRequestParam(AttributeConst.EMP_PASS);
         String pepper= getContextScope(PropertyConst.PEPPER);
 
+
+        System.out.println("code:" + code + " pass:" + plainPass + " pepper:" + pepper); //☆
+
         Boolean isValidEmployee = service.validateLogin(code,plainPass,pepper);
+        System.out.println("validate:" + isValidEmployee); //☆
 
         if(isValidEmployee) {
 
             if(checkToken()){
-                EmployeeView ev= service.findOne(code,plainPass,pepper);
-                putSessionScope(AttributeConst.LOGIN_EMP,ev);
+                EmployeeView ev = service.findOne(code,plainPass,pepper);
+                putSessionScope(AttributeConst.LOGIN_EMP, ev);
                 putSessionScope(AttributeConst.FLUSH,MessageConst.I_LOGINED.getMessage());
                 redirect(ForwardConst.ACT_TOP,ForwardConst.CMD_INDEX);
               }
@@ -67,7 +71,7 @@ public class AuthAction extends ActionBase {
     public void logout() throws ServletException,IOException{
 
         removeSessionScope(AttributeConst.LOGIN_EMP);
-        putSessionScope(AttributeConst.FLUSH,MessageConst.I_LOGOUT.getMessage());
+        putSessionScope(AttributeConst.FLUSH, MessageConst.I_LOGOUT.getMessage());
         redirect(ForwardConst.ACT_AUTH,ForwardConst.CMD_SHOW_LOGIN);
 
     }

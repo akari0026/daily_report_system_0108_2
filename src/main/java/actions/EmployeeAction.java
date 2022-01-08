@@ -180,17 +180,17 @@ public class EmployeeAction extends ActionBase {
     }
 
     private boolean checkAdmin() throws ServletException, IOException {
-        return true;
-        //
-        ////        EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
-        //////
-        //////        if (ev.getAdminFlag() != AttributeConst.ROLE_ADMIN.getIntegerValue()) {
-        //////
-        //////            forward(ForwardConst.FW_ERR_UNKNOWN);
-        //////            return false;
-        //////        } else {
-        //////            return true;
-        ////        }
+
+
+                EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
+
+                if (ev.getAdminFlag() != AttributeConst.ROLE_ADMIN.getIntegerValue()) {
+
+                    forward(ForwardConst.FW_ERR_UNKNOWN);
+                    return false;
+                } else {
+                    return true;
+                }
     }
 
 }

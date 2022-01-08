@@ -19,7 +19,7 @@ public class EmployeeValidator {
                 errors.add(codeError);
             }
 
-            String nameError= validateName(ev.getName());
+            String nameError = validateName(ev.getName());
             if(!nameError.equals("")) {
                 errors.add(nameError);
             }
@@ -34,7 +34,7 @@ public class EmployeeValidator {
 
     private static String validateCode(EmployeeService service,String code,Boolean codeDuplicateCheckFlag) {
 
-        if(code ==null || code.equals("")) {
+        if(code == null || code.equals("")) {
             return MessageConst.E_NOEMP_CODE.getMessage();
 
         }
@@ -74,7 +74,7 @@ public class EmployeeValidator {
     }
 
 
-    private static String validatePassword(String password,Boolean passwordCheckFlag) {
+    private static String validatePassword(String password, Boolean passwordCheckFlag) {
 
         if(passwordCheckFlag && (password == null || password.equals(""))) {
 

@@ -15,7 +15,7 @@ import utils.EncryptUtil;
 public class EmployeeService  extends ServiceBase{
 
     public List<EmployeeView>getPerPage(int page){
-        List<Employee>employees= em.createNamedQuery(JpaConst.Q_EMP_GET_ALL,Employee.class)
+        List<Employee> employees = em.createNamedQuery(JpaConst.Q_EMP_GET_ALL,Employee.class)
                 .setFirstResult(JpaConst.ROW_PER_PAGE * (page - 1))
                 .setMaxResults(JpaConst.ROW_PER_PAGE)
                 .getResultList();
@@ -25,21 +25,21 @@ public class EmployeeService  extends ServiceBase{
 
 
     public long countAll() {
-        long empCount = (long)em.createNamedQuery(JpaConst.Q_EMP_COUNT,Long.class)
+        long empCount = (long) em.createNamedQuery(JpaConst.Q_EMP_COUNT,Long.class)
                 .getSingleResult();
 
         return empCount;
 
     }
 
-    public EmployeeView findOne(String code,String plainPass,String pepper) {
-        Employee e= null;
+    public EmployeeView findOne(String code, String plainPass, String pepper) {
+        Employee e = null;
         try {
-            String pass=EncryptUtil.getPasswordEncrypt(plainPass,pepper);
+            String pass = EncryptUtil.getPasswordEncrypt(plainPass,pepper);
 
             e= em.createNamedQuery(JpaConst.Q_EMP_GET_BY_CODE_AND_PASS,Employee.class)
-                    .setParameter(JpaConst.JPQL_PARM_CODE,code)
-                    .setParameter(JpaConst.JPQL_PARM_PASSWORD,pass)
+                    .setParameter(JpaConst.JPQL_PARM_CODE, code)
+                    .setParameter(JpaConst.JPQL_PARM_PASSWORD, pass)
                     .getSingleResult();
         }catch (NoResultException ex) {
         }
@@ -55,7 +55,7 @@ public class EmployeeService  extends ServiceBase{
 
     public long countByCode(String code) {
 
-        long employees_count= (long)em.createNamedQuery(JpaConst.Q_EMP_COUNT_RESISTERED_BY_CODE,Long.class)
+        long employees_count = (long) em.createNamedQuery(JpaConst.Q_EMP_COUNT_RESISTERED_BY_CODE, Long.class)
                 .setParameter(JpaConst.JPQL_PARM_CODE,code)
                 .getSingleResult();
         return employees_count;
@@ -124,17 +124,17 @@ public class EmployeeService  extends ServiceBase{
     public Boolean validateLogin(String code,String plainPass,String pepper) {
 
         boolean isValidEmployee = false;
-        if(code !=null && !code.equals("") && plainPass !=null && !plainPass.equals("")) {
-            EmployeeView ev= findOne(code,plainPass,pepper);
-            if(ev !=null && ev.getId() !=null) {
-                isValidEmployee= true;
+        if(code != null && !code.equals("") && plainPass !=null && !plainPass.equals("")) {
+            EmployeeView ev = findOne(code, plainPass, pepper);
+            if(ev != null && ev.getId() != null) {
+                isValidEmployee = true;
             }
         }
         return isValidEmployee;
     }
 
     private Employee findOneInternal(int id) {
-        Employee e= em.find(Employee.class,id);
+        Employee e = em.find(Employee.class,id);
 
         return e;
 

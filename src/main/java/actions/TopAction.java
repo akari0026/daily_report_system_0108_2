@@ -29,20 +29,20 @@ public class TopAction extends ActionBase{
 
 public void index() throws ServletException,IOException{
 
-    EmployeeView loginEmployee= (EmployeeView)getSessionScope(AttributeConst.LOGIN_EMP);
+    EmployeeView loginEmployee= (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
 
     int page = getPage();
-    List<ReportView>reports= service.getMinePerPage(loginEmployee, page);
+    List<ReportView> reports = service.getMinePerPage(loginEmployee, page);
 
-    long myReportCount =service.countAllMine(loginEmployee);
+    long myReportsCount = service.countAllMine(loginEmployee);
     putRequestScope(AttributeConst.REPORTS,reports);
     putRequestScope(AttributeConst.PAGE,page);
     putRequestScope(AttributeConst.MAX_ROW,JpaConst.ROW_PER_PAGE);
 
 
     String flush = getSessionScope(AttributeConst.FLUSH);
-    if(flush!= null) {
-        putRequestScope(AttributeConst.FLUSH,flush);
+    if(flush != null) {
+        putRequestScope(AttributeConst.FLUSH, flush);
         removeSessionScope(AttributeConst.FLUSH);
     }
 
